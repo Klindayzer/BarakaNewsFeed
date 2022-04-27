@@ -8,12 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    private enum Values {
+        static let title = "Baraka"
+        static let viewBackground: UIColor = .white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+                
+        navigationItem.title = Values.title
+        view.backgroundColor = Values.viewBackground
     }
-
-
 }
-
