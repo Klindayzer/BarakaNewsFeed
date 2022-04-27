@@ -17,7 +17,7 @@ final class Environment {
     enum PropertyListKeys: String {
         case plistEntryKey = "Integration Specific Identifiers"
         case scheme = "UD_CURRENT_SCHEME_NAME"
-        case stoke = "UD_STOKE_PATH"
+        case stock = "UD_STOCK_PATH"
         case news = "UD_NEWS_PATH"
     }
     

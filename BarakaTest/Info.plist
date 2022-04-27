@@ -8,8 +8,8 @@
 		<string>$(UD_NEWS_PATH)</string>
 		<key>UD_CURRENT_SCHEME_NAME</key>
 		<string>$(UD_CURRENT_SCHEME_NAME)</string>
-		<key>UD_STOKE_PATH</key>
-		<string>$(UD_STOKE_PATH)</string>
+		<key>UD_STOCK_PATH</key>
+		<string>$(UD_STOCK_PATH)</string>
 	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
