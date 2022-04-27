@@ -101,9 +101,9 @@
 		25169C562819AF14000B6D01 /* BarakaTest */ = {
 			isa = PBXGroup;
 			children = (
-				25683A7F2819CECA006E5D7F /* Helpers */,
 				25169C872819AF85000B6D01 /* App Delegate */,
-				25169C5B2819AF14000B6D01 /* ViewController.swift */,
+				25683A822819D50A006E5D7F /* App Modules */,
+				25683A7F2819CECA006E5D7F /* Helpers */,
 				25169C602819AF15000B6D01 /* Assets.xcassets */,
 				25169C622819AF15000B6D01 /* LaunchScreen.storyboard */,
 				25169C652819AF15000B6D01 /* Info.plist */,
@@ -142,6 +142,14 @@
 				25683A802819CEE4006E5D7F /* Environment.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		25683A822819D50A006E5D7F /* App Modules */ = {
+			isa = PBXGroup;
+			children = (
+				25169C5B2819AF14000B6D01 /* ViewController.swift */,
+			);
+			path = "App Modules";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
