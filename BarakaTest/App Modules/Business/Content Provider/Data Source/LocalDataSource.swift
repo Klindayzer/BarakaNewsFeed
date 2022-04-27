@@ -9,9 +9,9 @@ import Foundation
 
 struct LocalDataSource: DataSourceable {
     
-    func readContent(from path: String, for type: String, completion: @escaping DataSourceCompletion) {
+    func readContent(from path: String, for type: DataType, completion: @escaping DataSourceCompletion) {
         
-        guard let filePath = Bundle.main.path(forResource: path, ofType: type) else {
+        guard let filePath = Bundle.main.path(forResource: path, ofType: type.rawValue) else {
             completion("")
             return
         }
