@@ -7,19 +7,16 @@
 
 import Foundation
 
-protocol JsonParsable: DateParsable {
-    associatedtype JSON
-}
-
-struct JsonDataParser<JSON: Codable>: JsonParsable {
+struct JsonDataParser<JSON: Codable>: DataParsable {
     
-    func parseContent<T>(from content: String, decodingType: T.Type) -> T? {
+    func parseContent(from content: String) -> Any? {
+        
         let jsonData = Data(content.utf8)
         let decoder = JSONDecoder()
         
         do {
             let json = try decoder.decode(JSON.self, from: jsonData)
-            return json as? T
+            return json
             
         } catch {
             return nil

@@ -6,10 +6,23 @@
  */
 
 import Foundation
+import CSV
 
-struct CsvDataParser: DateParsable {
+struct CsvDataParser<JSON: Codable>: DataParsable {
     
-    func parseContent<T>(from content: String, decodingType: T.Type) -> T? {
-        return nil
+    func parseContent(from content: String) -> Any? {
+        
+        var records = [JSON]()
+        do {
+            let reader = try CSVReader(string: content, hasHeaderRow: true)
+            let decoder = CSVRowDecoder()
+            while reader.next() != nil {
+                let row = try decoder.decode(JSON.self, from: reader)
+                records.append(row)
+            }
+            return records
+        } catch {
+            return nil
+        }
     }
 }
