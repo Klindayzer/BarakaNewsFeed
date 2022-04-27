@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Integration Specific Identifiers</key>
+	<dict>
+		<key>UD_NEWS_PATH</key>
+		<string>$(UD_NEWS_PATH)</string>
+		<key>UD_CURRENT_SCHEME_NAME</key>
+		<string>$(UD_CURRENT_SCHEME_NAME)</string>
+		<key>UD_STOKE_PATH</key>
+		<string>$(UD_STOKE_PATH)</string>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

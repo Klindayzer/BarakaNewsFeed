@@ -16,6 +16,7 @@
 		25169C7B2819AF16000B6D01 /* BarakaTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25169C7A2819AF16000B6D01 /* BarakaTestUITestsLaunchTests.swift */; };
 		25169C8A2819B951000B6D01 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 25169C892819B951000B6D01 /* RxCocoa */; };
 		25169C8C2819B951000B6D01 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25169C8B2819B951000B6D01 /* RxSwift */; };
+		25683A812819CEE4006E5D7F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25683A802819CEE4006E5D7F /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		25169C742819AF15000B6D01 /* BarakaTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarakaTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25169C782819AF16000B6D01 /* BarakaTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaTestUITests.swift; sourceTree = "<group>"; };
 		25169C7A2819AF16000B6D01 /* BarakaTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		25683A802819CEE4006E5D7F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		25169C562819AF14000B6D01 /* BarakaTest */ = {
 			isa = PBXGroup;
 			children = (
+				25683A7F2819CECA006E5D7F /* Helpers */,
 				25169C872819AF85000B6D01 /* App Delegate */,
 				25169C5B2819AF14000B6D01 /* ViewController.swift */,
 				25169C602819AF15000B6D01 /* Assets.xcassets */,
@@ -131,6 +134,14 @@
 				25169C572819AF14000B6D01 /* AppDelegate.swift */,
 			);
 			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		25683A7F2819CECA006E5D7F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				25683A802819CEE4006E5D7F /* Environment.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25169C5C2819AF14000B6D01 /* ViewController.swift in Sources */,
+				25683A812819CEE4006E5D7F /* Environment.swift in Sources */,
 				25169C582819AF14000B6D01 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +471,9 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				UD_CURRENT_SCHEME_NAME = "BarakaTest-Develop";
+				UD_NEWS_PATH = "https://saurav.tech/NewsAPI/everything/cnn.json";
+				UD_STOKE_PATH = "https://raw.githubusercontent.com/dsancov/TestData/main/stocks.csv";
 			};
 			name = Debug;
 		};
@@ -488,6 +503,9 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				UD_CURRENT_SCHEME_NAME = "BarakaTest-Develop";
+				UD_NEWS_PATH = "https://saurav.tech/NewsAPI/everything/cnn.json";
+				UD_STOKE_PATH = "https://raw.githubusercontent.com/dsancov/TestData/main/stocks.csv";
 			};
 			name = Release;
 		};
@@ -649,6 +667,9 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				UD_CURRENT_SCHEME_NAME = "BarakaTest-Local";
+				UD_NEWS_PATH = NewsJSON;
+				UD_STOKE_PATH = StokeCSV;
 			};
 			name = Local;
 		};
