@@ -6,22 +6,22 @@
  */
 
 import Foundation
+import RxSwift
 
 struct LocalDataSource: DataSourceable {
     
-    func readContent(from path: String, for type: DataType, completion: @escaping DataSourceCompletion) {
+    func readContent(from url: URL, type: DataType) -> Observable<String> {
         
-        guard let filePath = Bundle.main.path(forResource: path, ofType: type.rawValue) else {
-            completion("")
-            return
-        }
+        return Observable.create { observer in
         
-        do {
-            let content = try String(contentsOfFile: filePath)
-            completion(content)
-        
-        } catch {
-            completion("")
+            do {
+                let content = try String(contentsOf: url)
+                observer.onNext(content)
+            
+            } catch let error {
+                observer.onError(error)
+            }
+            return Disposables.create {}
         }
     }
 }

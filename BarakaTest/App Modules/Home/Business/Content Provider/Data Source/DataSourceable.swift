@@ -5,7 +5,8 @@
  *	Created by Klindayzer on 28/04/2022.
  */
 
-typealias DataSourceCompletion = (String) -> Void
+import Foundation
+import RxSwift
 
 enum DataType: String {
     case json
@@ -13,5 +14,5 @@ enum DataType: String {
 }
 
 protocol DataSourceable {
-    func readContent(from path: String, for type: DataType, completion: @escaping DataSourceCompletion)
+    func readContent(from url: URL, type: DataType) -> Observable<String>
 }

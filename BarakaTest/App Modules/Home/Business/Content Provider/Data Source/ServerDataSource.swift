@@ -6,24 +6,41 @@
  */
 
 import Foundation
+import RxSwift
+
+enum ServerError: Error {
+    case invalidUrl
+    case invalidData
+}
 
 struct ServerDataSource : DataSourceable {
     
-    func readContent(from path: String, for type: DataType, completion: @escaping DataSourceCompletion) {
+    private let urlSession: URLSession
+    
+    init() {
+        urlSession = URLSession(configuration: .default)
+    }
+    
+    func readContent(from url: URL, type: DataType) -> Observable<String> {
         
-        guard let url = URL(string: path) else {
-            completion("")
-            return
-        }
-        
-        let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
-            guard let data = data, let content = String(data: data, encoding: .utf8) else {
-                completion("")
-                return
+        return Observable.create { observer in
+                        
+            let task = urlSession.dataTask(with: url) { (data, response, error) in
+                
+                if let error = error {
+                    observer.onError(error)
+                } else if let data = data, let content = String(data: data, encoding: .utf8) {
+                    observer.onNext(content)
+                } else {
+                    observer.onError(ServerError.invalidData)
+                }
+                
+                observer.onCompleted()
             }
-            
-            completion(content)
+            task.resume()
+            return Disposables.create {
+                task.cancel()
+            }
         }
-        urlSession.resume()
     }
 }
