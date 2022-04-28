@@ -6,7 +6,5 @@
  */
 
 protocol DataParsable {
-    associatedtype JSON
-    
-    func parseContent(from content: String) -> Any?
+    func parseContent<JSON: Codable>(from content: String, decodingType: JSON.Type) -> Any?
 }

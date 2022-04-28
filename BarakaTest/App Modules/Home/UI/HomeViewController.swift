@@ -14,6 +14,13 @@ class HomeViewController: UIViewController {
         static let viewBackground: UIColor = .white
     }
     
+    private var viewModel: HomeViewModel?
+    
+    convenience init(viewModel: HomeViewModel) {
+        self.init()
+        self.viewModel = viewModel
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 

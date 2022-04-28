@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct JsonDataParser<JSON: Codable>: DataParsable {
+struct JsonDataParser: DataParsable {
     
-    func parseContent(from content: String) -> Any? {
+    func parseContent<JSON: Codable>(from content: String, decodingType: JSON.Type) -> Any? {
         
         let jsonData = Data(content.utf8)
         let decoder = JSONDecoder()
         
         do {
-            let json = try decoder.decode(JSON.self, from: jsonData)
+            let json = try decoder.decode(decodingType.self, from: jsonData)
             return json
             
         } catch {
