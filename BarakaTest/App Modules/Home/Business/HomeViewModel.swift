@@ -10,6 +10,7 @@
 // MARK: - Type
 import Foundation
 import RxSwift
+import RxRelay
 
 final class HomeViewModel {
     
@@ -21,6 +22,9 @@ final class HomeViewModel {
     private let environment: Environment
     
     // MARK: - Exposed Properties
+    let news: BehaviorRelay<[News]> = BehaviorRelay(value: [])
+    let stocks: BehaviorRelay<[Stock]> = BehaviorRelay(value: [])
+    
     var newsUrl: URL? {
         
         let path = environment.value(for: .news)
@@ -47,9 +51,9 @@ final class HomeViewModel {
     func fetchData(news: URL, stocks: URL) {
         
         Observable.combineLatest(fetchNews(from: news), fetchStocks(from: stocks))
-            .subscribe { newsContent, stocksContent in
-                print(newsContent)
-                print(stocksContent)
+            .subscribe { [weak self] newsContent, stocksContent in
+                self?.parseNews(newsContent)
+                self?.parseStocks(stocksContent)
                 
             } onError: { error in
                 print(error.localizedDescription)
@@ -70,13 +74,19 @@ private extension HomeViewModel {
         datasource.readContent(from: url, type: .csv)
     }
     
-    func parseNews(_ content: String) -> [News] {
+    func parseNews(_ content: String) {
         
-        let newsModel = newsParser.parseContent(from: content, decodingType: NewsModel.self) as? NewsModel
-        return newsModel?.articles ?? []
+        guard let newsModel = newsParser.parseContent(from: content, decodingType: NewsModel.self) as? NewsModel else {
+            return
+        }
+        news.accept(newsModel.articles ?? [])
     }
     
-    func parseStocks(_ content: String) -> [Stock] {
-        stockParser.parseContent(from: content, decodingType: Stock.self) as? [Stock] ?? []
+    func parseStocks(_ content: String) {
+        
+        guard let stocks = stockParser.parseContent(from: content, decodingType: Stock.self) as? [Stock] else {
+            return
+        }
+        self.stocks.accept(stocks)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class HomeViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class HomeViewController: UIViewController {
     }
     
     private var viewModel: HomeViewModel?
+    private let disposeBag = DisposeBag()
     
     convenience init(viewModel: HomeViewModel) {
         self.init()
@@ -23,8 +25,43 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         navigationItem.title = Values.title
         view.backgroundColor = Values.viewBackground
+        
+        setupNewsObserver()
+        setupStocksObserver()
+        fetchData()
+    }
+}
+
+// MARK: - Datasource Methods
+private extension HomeViewController {
+    
+    func setupNewsObserver() {
+        
+        viewModel?.news.asObservable()
+            .subscribe(onNext: { [weak self] news in
+                print(news)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func setupStocksObserver() {
+        
+        viewModel?.stocks.asObservable()
+            .subscribe(onNext: { [weak self] stoks in
+                print(stoks)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func fetchData() {
+        
+        if let newsUrl = viewModel?.newsUrl,
+           let stocksUrl = viewModel?.stocksUrl {
+            
+            viewModel?.fetchData(news: newsUrl, stocks: stocksUrl)
+        }
     }
 }

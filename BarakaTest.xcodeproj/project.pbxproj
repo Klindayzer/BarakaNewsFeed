@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250F9A6B281B5A4900D4F40E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 250F9A6A281B5A4900D4F40E /* RxCocoa */; };
+		250F9A6D281B5A4900D4F40E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 250F9A6C281B5A4900D4F40E /* RxRelay */; };
+		250F9A6F281B5A4900D4F40E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 250F9A6E281B5A4900D4F40E /* RxSwift */; };
 		25169C582819AF14000B6D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25169C572819AF14000B6D01 /* AppDelegate.swift */; };
 		25169C5C2819AF14000B6D01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25169C5B2819AF14000B6D01 /* HomeViewController.swift */; };
 		25169C612819AF15000B6D01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25169C602819AF15000B6D01 /* Assets.xcassets */; };
@@ -14,8 +17,6 @@
 		25169C6F2819AF15000B6D01 /* BarakaTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25169C6E2819AF15000B6D01 /* BarakaTestTests.swift */; };
 		25169C792819AF16000B6D01 /* BarakaTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25169C782819AF16000B6D01 /* BarakaTestUITests.swift */; };
 		25169C7B2819AF16000B6D01 /* BarakaTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25169C7A2819AF16000B6D01 /* BarakaTestUITestsLaunchTests.swift */; };
-		25169C8A2819B951000B6D01 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 25169C892819B951000B6D01 /* RxCocoa */; };
-		25169C8C2819B951000B6D01 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25169C8B2819B951000B6D01 /* RxSwift */; };
 		25683A812819CEE4006E5D7F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25683A802819CEE4006E5D7F /* Environment.swift */; };
 		25683A872819D5CA006E5D7F /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25683A862819D5CA006E5D7F /* News.swift */; };
 		25683A892819D5F3006E5D7F /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25683A882819D5F3006E5D7F /* Stock.swift */; };
@@ -79,9 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				250F9A6D281B5A4900D4F40E /* RxRelay in Frameworks */,
+				250F9A6B281B5A4900D4F40E /* RxCocoa in Frameworks */,
+				250F9A6F281B5A4900D4F40E /* RxSwift in Frameworks */,
 				25683AA22819F0D4006E5D7F /* CSV in Frameworks */,
-				25169C8C2819B951000B6D01 /* RxSwift in Frameworks */,
-				25169C8A2819B951000B6D01 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,9 +270,10 @@
 			);
 			name = BarakaTest;
 			packageProductDependencies = (
-				25169C892819B951000B6D01 /* RxCocoa */,
-				25169C8B2819B951000B6D01 /* RxSwift */,
 				25683AA12819F0D4006E5D7F /* CSV */,
+				250F9A6A281B5A4900D4F40E /* RxCocoa */,
+				250F9A6C281B5A4900D4F40E /* RxRelay */,
+				250F9A6E281B5A4900D4F40E /* RxSwift */,
 			);
 			productName = BarakaTest;
 			productReference = 25169C542819AF14000B6D01 /* BarakaTest.app */;
@@ -345,8 +348,8 @@
 			);
 			mainGroup = 25169C4B2819AF14000B6D01;
 			packageReferences = (
-				25169C882819B951000B6D01 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				25683AA02819F0D4006E5D7F /* XCRemoteSwiftPackageReference "CSV.swift" */,
+				250F9A69281B5A4900D4F40E /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 25169C552819AF14000B6D01 /* Products */;
 			projectDirPath = "";
@@ -875,7 +878,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		25169C882819B951000B6D01 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		250F9A69281B5A4900D4F40E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -894,14 +897,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		25169C892819B951000B6D01 /* RxCocoa */ = {
+		250F9A6A281B5A4900D4F40E /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 25169C882819B951000B6D01 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 250F9A69281B5A4900D4F40E /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		25169C8B2819B951000B6D01 /* RxSwift */ = {
+		250F9A6C281B5A4900D4F40E /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 25169C882819B951000B6D01 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 250F9A69281B5A4900D4F40E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		250F9A6E281B5A4900D4F40E /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 250F9A69281B5A4900D4F40E /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 		25683AA12819F0D4006E5D7F /* CSV */ = {
