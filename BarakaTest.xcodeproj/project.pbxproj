@@ -170,8 +170,7 @@
 		25683A822819D50A006E5D7F /* App Modules */ = {
 			isa = PBXGroup;
 			children = (
-				25683A842819D578006E5D7F /* UI */,
-				25683A832819D565006E5D7F /* Business */,
+				25683AA3281B382D006E5D7F /* Main */,
 			);
 			path = "App Modules";
 			sourceTree = "<group>";
@@ -238,6 +237,15 @@
 				25683A9C2819E463006E5D7F /* CsvDataParser.swift */,
 			);
 			path = "Data Parser";
+			sourceTree = "<group>";
+		};
+		25683AA3281B382D006E5D7F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				25683A842819D578006E5D7F /* UI */,
+				25683A832819D565006E5D7F /* Business */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
