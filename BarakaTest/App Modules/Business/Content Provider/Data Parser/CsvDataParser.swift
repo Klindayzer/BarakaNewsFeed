@@ -14,7 +14,7 @@ struct CsvDataParser<JSON: Codable>: DataParsable {
         
         var records = [JSON]()
         do {
-            let reader = try CSVReader(string: content, hasHeaderRow: true)
+            let reader = try CSVReader(string: content, hasHeaderRow: true, trimFields: true)
             let decoder = CSVRowDecoder()
             while reader.next() != nil {
                 let row = try decoder.decode(JSON.self, from: reader)
