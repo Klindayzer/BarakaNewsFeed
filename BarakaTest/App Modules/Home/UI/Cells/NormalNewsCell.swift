@@ -6,9 +6,6 @@
  */
 
 import UIKit
-// MARK: - Definitions
-
-// MARK: - Type
 
 final class NormalNewsCell: UICollectionViewCell {
     
@@ -18,14 +15,16 @@ final class NormalNewsCell: UICollectionViewCell {
     @IBOutlet private weak var newsDateLabel: UILabel!
     @IBOutlet private weak var newsDescriptionLabel: UILabel!
     @IBOutlet private weak var dimmingView: UIView!
-    // MARK: - Properties
-    
-    // MARK: - Constructors
-    
-    // MARK: - Protected Methods
     
     // MARK: - Exposed Methods
-    
-    // MARK: - Overridden Methods
+    func setupCell(with news: NewsPresenter) {
+        
+        dimmingView.backgroundColor = (UIColor(named: "black100") ?? .black).withAlphaComponent(0.6)
+        
+        newsImageView.setImage(url: news.image)
+        newsTitleLabel.text = news.title
+        newsDateLabel.text = news.date
+        newsDescriptionLabel.text = news.description
+    }
     
 }

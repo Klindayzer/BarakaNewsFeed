@@ -6,9 +6,6 @@
  */
 
 import UIKit
-// MARK: - Definitions
-
-// MARK: - Type
 
 final class FeaturedNewsCell: UICollectionViewCell {
     
@@ -17,14 +14,13 @@ final class FeaturedNewsCell: UICollectionViewCell {
     @IBOutlet private weak var newsTitleLabel: UILabel!
     @IBOutlet private weak var dimmingView: UIView!
     
-    // MARK: - Properties
-    
-    // MARK: - Constructors
-    
-    // MARK: - Protected Methods
-    
+   
     // MARK: - Exposed Methods
-    
-    // MARK: - Overridden Methods
-    
+    func setupCell(with news: NewsPresenter) {
+        
+        dimmingView.backgroundColor = (UIColor(named: "black100") ?? .black).withAlphaComponent(0.6)
+        
+        newsImageView.setImage(url: news.image)
+        newsTitleLabel.text = news.title
+    }
 }
