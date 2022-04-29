@@ -10,6 +10,10 @@
 		250F9A6B281B5A4900D4F40E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 250F9A6A281B5A4900D4F40E /* RxCocoa */; };
 		250F9A6D281B5A4900D4F40E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 250F9A6C281B5A4900D4F40E /* RxRelay */; };
 		250F9A6F281B5A4900D4F40E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 250F9A6E281B5A4900D4F40E /* RxSwift */; };
+		250F9A72281B755900D4F40E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 250F9A71281B755900D4F40E /* Kingfisher */; };
+		250F9A75281B757600D4F40E /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 250F9A74281B757600D4F40E /* MBProgressHUD */; };
+		250F9A78281B75CE00D4F40E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F9A77281B75CE00D4F40E /* UIViewController.swift */; };
+		250F9A7A281B760300D4F40E /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F9A79281B760300D4F40E /* UIImageView.swift */; };
 		25169C582819AF14000B6D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25169C572819AF14000B6D01 /* AppDelegate.swift */; };
 		25169C5C2819AF14000B6D01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25169C5B2819AF14000B6D01 /* HomeViewController.swift */; };
 		25169C612819AF15000B6D01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25169C602819AF15000B6D01 /* Assets.xcassets */; };
@@ -50,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250F9A77281B75CE00D4F40E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		250F9A79281B760300D4F40E /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		25169C542819AF14000B6D01 /* BarakaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25169C572819AF14000B6D01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25169C5B2819AF14000B6D01 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +86,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				250F9A75281B757600D4F40E /* MBProgressHUD in Frameworks */,
 				250F9A6D281B5A4900D4F40E /* RxRelay in Frameworks */,
 				250F9A6B281B5A4900D4F40E /* RxCocoa in Frameworks */,
 				250F9A6F281B5A4900D4F40E /* RxSwift in Frameworks */,
 				25683AA22819F0D4006E5D7F /* CSV in Frameworks */,
+				250F9A72281B755900D4F40E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250F9A76281B758600D4F40E /* Exttensions */ = {
+			isa = PBXGroup;
+			children = (
+				250F9A77281B75CE00D4F40E /* UIViewController.swift */,
+				250F9A79281B760300D4F40E /* UIImageView.swift */,
+			);
+			path = Exttensions;
+			sourceTree = "<group>";
+		};
 		25169C4B2819AF14000B6D01 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +182,7 @@
 		25683A7F2819CECA006E5D7F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				250F9A76281B758600D4F40E /* Exttensions */,
 				25683A8A2819D804006E5D7F /* Assets */,
 				25683A802819CEE4006E5D7F /* Environment.swift */,
 			);
@@ -274,6 +292,8 @@
 				250F9A6A281B5A4900D4F40E /* RxCocoa */,
 				250F9A6C281B5A4900D4F40E /* RxRelay */,
 				250F9A6E281B5A4900D4F40E /* RxSwift */,
+				250F9A71281B755900D4F40E /* Kingfisher */,
+				250F9A74281B757600D4F40E /* MBProgressHUD */,
 			);
 			productName = BarakaTest;
 			productReference = 25169C542819AF14000B6D01 /* BarakaTest.app */;
@@ -350,6 +370,8 @@
 			packageReferences = (
 				25683AA02819F0D4006E5D7F /* XCRemoteSwiftPackageReference "CSV.swift" */,
 				250F9A69281B5A4900D4F40E /* XCRemoteSwiftPackageReference "RxSwift" */,
+				250F9A70281B755900D4F40E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				250F9A73281B757600D4F40E /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 			);
 			productRefGroup = 25169C552819AF14000B6D01 /* Products */;
 			projectDirPath = "";
@@ -397,11 +419,13 @@
 			files = (
 				25683A9F2819EAF9006E5D7F /* DataParsable.swift in Sources */,
 				25169C5C2819AF14000B6D01 /* HomeViewController.swift in Sources */,
+				250F9A7A281B760300D4F40E /* UIImageView.swift in Sources */,
 				25683A812819CEE4006E5D7F /* Environment.swift in Sources */,
 				25683A872819D5CA006E5D7F /* News.swift in Sources */,
 				25683A9B2819E459006E5D7F /* JsonDataParser.swift in Sources */,
 				25683A9D2819E463006E5D7F /* CsvDataParser.swift in Sources */,
 				25683A952819DC44006E5D7F /* ServerDataSource.swift in Sources */,
+				250F9A78281B75CE00D4F40E /* UIViewController.swift in Sources */,
 				25683AA5281B3933006E5D7F /* HomeViewModel.swift in Sources */,
 				25683A932819DC1D006E5D7F /* LocalDataSource.swift in Sources */,
 				25683A892819D5F3006E5D7F /* Stock.swift in Sources */,
@@ -886,6 +910,22 @@
 				version = 6.5.0;
 			};
 		};
+		250F9A70281B755900D4F40E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.2.1;
+			};
+		};
+		250F9A73281B757600D4F40E /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.0;
+			};
+		};
 		25683AA02819F0D4006E5D7F /* XCRemoteSwiftPackageReference "CSV.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yaslab/CSV.swift.git";
@@ -911,6 +951,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 250F9A69281B5A4900D4F40E /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		250F9A71281B755900D4F40E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 250F9A70281B755900D4F40E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		250F9A74281B757600D4F40E /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 250F9A73281B757600D4F40E /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
 		};
 		25683AA12819F0D4006E5D7F /* CSV */ = {
 			isa = XCSwiftPackageProductDependency;
