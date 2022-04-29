@@ -15,12 +15,15 @@ class HomeViewController: UIViewController {
         static let viewBackground: UIColor = .white
     }
     
-    private var viewModel: HomeViewModel?
+    private var viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
+    private var timer: Timer?
     
     convenience init(viewModel: HomeViewModel) {
         self.init()
+        
         self.viewModel = viewModel
+        timer = nil
     }
     
     override func viewDidLoad() {
@@ -29,39 +32,50 @@ class HomeViewController: UIViewController {
         navigationItem.title = Values.title
         view.backgroundColor = Values.viewBackground
         
-        setupNewsObserver()
-        setupStocksObserver()
+        setupDataObserver()
         fetchData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        randomUpdateStocks()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        timer?.invalidate()
+        timer = nil
     }
 }
 
 // MARK: - Datasource Methods
 private extension HomeViewController {
     
-    func setupNewsObserver() {
+    func setupDataObserver() {
         
-        viewModel?.news.asObservable()
-            .subscribe(onNext: { [weak self] news in
-                print(news)
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    func setupStocksObserver() {
-        
-        viewModel?.stocks.asObservable()
-            .subscribe(onNext: { [weak self] stoks in
-                print(stoks)
-            })
-            .disposed(by: disposeBag)
+        Observable.combineLatest(viewModel.currentStocks, viewModel.featuredNews, viewModel.normalNews)
+            .subscribe(onNext: { [weak self] stocks, featuredNews, normalNews in
+                print(stocks)
+            }).disposed(by: disposeBag)
     }
     
     func fetchData() {
         
-        if let newsUrl = viewModel?.newsUrl,
-           let stocksUrl = viewModel?.stocksUrl {
+        if let newsUrl = viewModel.newsUrl,
+           let stocksUrl = viewModel.stocksUrl {
             
-            viewModel?.fetchData(news: newsUrl, stocks: stocksUrl)
+            viewModel.fetchData(news: newsUrl, stocks: stocksUrl)
         }
+    }
+    
+    func randomUpdateStocks() {
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
+            
+            guard let self = self else { return }
+            self.viewModel.currentStocks.accept(self.viewModel.randomStocks())
+        })
     }
 }

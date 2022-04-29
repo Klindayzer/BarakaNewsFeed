@@ -7,11 +7,17 @@
 
 struct Stock: Codable {
     
-    let stock: String?
+    let title: String?
     let price: String?
     
+    init(title: String, price: String) {
+        
+        self.title = title
+        self.price = price
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case stock = "STOCK"
+        case title = "STOCK"
         case price = "PRICE"            
     }
 }

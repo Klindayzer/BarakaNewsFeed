@@ -15,15 +15,18 @@ import RxRelay
 final class HomeViewModel {
     
     // MARK: - Protected Properties
+    private let featuredNewsCount = 6
     private let datasource: DataSourceable
     private let newsParser: DataParsable
     private let stockParser: DataParsable
     private let disposeBag: DisposeBag
     private let environment: Environment
+    private var stocks: [Stock]
     
     // MARK: - Exposed Properties
-    let news: BehaviorRelay<[News]> = BehaviorRelay(value: [])
-    let stocks: BehaviorRelay<[Stock]> = BehaviorRelay(value: [])
+    let featuredNews: BehaviorRelay<[News]> = BehaviorRelay(value: [])
+    let normalNews: BehaviorRelay<[News]> = BehaviorRelay(value: [])
+    let currentStocks: BehaviorRelay<[Stock]> = BehaviorRelay(value: [])
     
     var newsUrl: URL? {
         
@@ -38,16 +41,22 @@ final class HomeViewModel {
     }
     
     // MARK: - Constructors
-    init(datasource: DataSourceable, newsParser: DataParsable, stockParser: DataParsable) {
+    init(datasource: DataSourceable = ServerDataSource(),
+         newsParser: DataParsable = JsonDataParser(),
+         stockParser: DataParsable = CsvDataParser()) {
         
         self.datasource = datasource
         self.newsParser = newsParser
         self.stockParser = stockParser
         disposeBag = DisposeBag()
         environment = Environment.instance
+        stocks = []
     }
+}
+
+// MARK: - Exposed Methods
+extension HomeViewModel {
     
-    // MARK: - Exposed Methods
     func fetchData(news: URL, stocks: URL) {
         
         Observable.combineLatest(fetchNews(from: news), fetchStocks(from: stocks))
@@ -60,6 +69,17 @@ final class HomeViewModel {
                 
             }
             .disposed(by: disposeBag)
+    }
+    
+    func randomStocks() -> [Stock] {
+        
+        Dictionary(grouping: stocks, by: { $0.title }).compactMap({
+            
+            let stocks = $0.value
+            guard let key = $0.key, !stocks.isEmpty else { return nil }
+            let randomInt = Int.random(in: 0..<stocks.count)
+            return Stock(title: key, price: stocks[randomInt].price ?? "")
+        })
     }
 }
 
@@ -76,10 +96,14 @@ private extension HomeViewModel {
     
     func parseNews(_ content: String) {
         
-        guard let newsModel = newsParser.parseContent(from: content, decodingType: NewsModel.self) as? NewsModel else {
-            return
-        }
-        news.accept(newsModel.articles ?? [])
+        guard let newsModel = newsParser.parseContent(from: content, decodingType: NewsModel.self) as? NewsModel,
+              let news = newsModel.articles else { return }
+        
+        let featuredNews = Array(news.prefix(featuredNewsCount))
+        self.featuredNews.accept(featuredNews)
+        
+        let normalNews = featuredNewsCount <= news.count ? Array(news.suffix(from: featuredNewsCount)) : []
+        self.normalNews.accept(normalNews)
     }
     
     func parseStocks(_ content: String) {
@@ -87,6 +111,9 @@ private extension HomeViewModel {
         guard let stocks = stockParser.parseContent(from: content, decodingType: Stock.self) as? [Stock] else {
             return
         }
-        self.stocks.accept(stocks)
+        
+        self.stocks = stocks
+        let randomStoks = randomStocks()
+        currentStocks.accept(randomStoks)
     }
 }
