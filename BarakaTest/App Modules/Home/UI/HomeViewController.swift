@@ -10,6 +10,12 @@ import RxSwift
 
 class HomeViewController: UIViewController {
     
+    private typealias HomeDataSource = UICollectionViewDiffableDataSource<HomeSections, AnyHashable>
+    
+    private enum HomeSections: String, CaseIterable {
+        case stocks = "STOCKS"
+    }
+    
     private enum Values {
         static let title = "Baraka"
         static let viewBackground: UIColor = .white

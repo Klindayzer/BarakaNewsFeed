@@ -6,8 +6,8 @@
  */
 import UIKit
 
-struct StockPresenter: HomeCellPresentable {
-
+class StockPresenter: Hashable {
+    
     let title: String
     let price: String
     let priceColor: UIColor
@@ -22,5 +22,13 @@ struct StockPresenter: HomeCellPresentable {
         
         let colorName = doublePrice > 0 ? "shineGreen120" : "persianPink"
         priceColor = UIColor(named: colorName) ?? .black
+    }
+    
+    static func == (lhs: StockPresenter, rhs: StockPresenter) -> Bool {
+        lhs.title == rhs.title
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(UUID().uuidString)
     }
 }
