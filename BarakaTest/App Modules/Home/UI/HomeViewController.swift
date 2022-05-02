@@ -169,9 +169,10 @@ extension HomeViewController {
         return section
     }
     
-    private func generateNormalNewsSection() -> NSCollectionLayoutSection {
+    private func generateNormalNewsSection() -> NSCollectionLayoutSection? {
         
         let itemCount = viewModel.normalNews.value.count
+        guard itemCount > 0 else { return nil }
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)

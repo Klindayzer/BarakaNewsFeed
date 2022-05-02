@@ -24,18 +24,21 @@ struct ServerDataSource : DataSourceable {
     func readContent(from url: URL, type: DataType) -> Observable<String> {
         
         return Observable.create { observer in
-                        
+            
             let task = urlSession.dataTask(with: url) { (data, response, error) in
                 
-                if let error = error {
-                    observer.onError(error)
-                } else if let data = data, let content = String(data: data, encoding: .utf8) {
-                    observer.onNext(content)
-                } else {
-                    observer.onError(ServerError.invalidData)
+                DispatchQueue.main.async {
+                    
+                    if let error = error {
+                        observer.onError(error)
+                    } else if let data = data, let content = String(data: data, encoding: .utf8) {
+                        observer.onNext(content)
+                    } else {
+                        observer.onError(ServerError.invalidData)
+                    }
+                    
+                    observer.onCompleted()
                 }
-                
-                observer.onCompleted()
             }
             task.resume()
             return Disposables.create {
