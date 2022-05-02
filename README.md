@@ -26,9 +26,4 @@ I've used SPM for below dependencies
 
 ## Screenshots
 
-
-![Simulator Screen Shot - iPhone 12 Pro - 2022-05-02 at 07 57 31](https://user-images.githubusercontent.com/39689007/166186726-c6ab7ebf-1c7f-4956-99bd-78e428f24b29.png)
-
-
-
-
+![Simulator Screen Shot - iPhone 12 Pro - 2022-05-02 at 07 57 31](https://user-images.githubusercontent.com/39689007/166187286-9d275597-905f-4fd6-97d4-4263d57938b8.png)
