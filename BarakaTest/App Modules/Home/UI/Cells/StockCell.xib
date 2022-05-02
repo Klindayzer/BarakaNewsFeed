@@ -36,7 +36,7 @@
                         </subviews>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" name="charcoal20"/>
+                <color key="backgroundColor" name="charcoal40"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="qFT-rH-z62" secondAttribute="bottom" constant="16" id="Aqu-mI-NKG"/>
                     <constraint firstAttribute="trailing" secondItem="qFT-rH-z62" secondAttribute="trailing" constant="16" id="OLH-Ok-Ih7"/>
@@ -44,7 +44,6 @@
                     <constraint firstItem="qFT-rH-z62" firstAttribute="leading" secondItem="ThI-sR-mac" secondAttribute="leading" constant="16" id="rgL-1o-zQk"/>
                 </constraints>
             </collectionViewCellContentView>
-            <color key="backgroundColor" name="charcoal20"/>
             <size key="customSize" width="279" height="165"/>
             <connections>
                 <outlet property="stockPriceLabel" destination="o5F-tM-bLL" id="BM2-Ng-P8e"/>
@@ -54,8 +53,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <namedColor name="charcoal20">
-            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="charcoal40">
+            <color red="0.87800002098083496" green="0.86699998378753662" blue="0.86299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="darkBlue100">
             <color red="0.0" green="0.14900000393390656" blue="0.3529999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -21,7 +21,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FVj-RX-aHq">
                         <rect key="frame" x="0.0" y="0.0" width="379" height="183"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5r0-uT-HNr">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5r0-uT-HNr">
                         <rect key="frame" x="0.0" y="127" width="379" height="56"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewA-gy-vNk">
@@ -40,7 +40,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="charcoal20"/>
+                <color key="backgroundColor" name="charcoal40"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="FVj-RX-aHq" secondAttribute="trailing" id="9lk-Q5-grh"/>
                     <constraint firstAttribute="bottom" secondItem="FVj-RX-aHq" secondAttribute="bottom" id="HNB-aC-W7d"/>
@@ -51,7 +51,6 @@
                     <constraint firstItem="FVj-RX-aHq" firstAttribute="leading" secondItem="I1Q-T2-m4o" secondAttribute="leading" id="xbD-5g-QNl"/>
                 </constraints>
             </collectionViewCellContentView>
-            <color key="backgroundColor" name="charcoal20"/>
             <size key="customSize" width="379" height="183"/>
             <connections>
                 <outlet property="dimmingView" destination="5r0-uT-HNr" id="6jF-3x-ZbE"/>
@@ -65,8 +64,8 @@
         <namedColor name="black90">
             <color red="0.27799999713897705" green="0.27799999713897705" blue="0.27799999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="charcoal20">
-            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="charcoal40">
+            <color red="0.87800002098083496" green="0.86699998378753662" blue="0.86299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="white100">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

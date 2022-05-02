@@ -18,9 +18,16 @@ final class FeaturedNewsCell: UICollectionViewCell {
     // MARK: - Exposed Methods
     func setupCell(with news: NewsPresenter) {
         
-        dimmingView.backgroundColor = (UIColor(named: "black100") ?? .black).withAlphaComponent(0.6)
-        
+        setupUI()        
         newsImageView.setImage(url: news.image)
         newsTitleLabel.text = news.title
+    }
+    
+    // MARK: - Protected Methods
+    private func setupUI() {
+        
+        dimmingView.backgroundColor = (UIColor(named: "black100") ?? .black).withAlphaComponent(0.6)
+        contentView.layer.cornerRadius = 16
+        contentView.clipsToBounds = true
     }
 }

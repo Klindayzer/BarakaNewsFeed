@@ -14,7 +14,7 @@ final class StockCell: UICollectionViewCell {
     @IBOutlet private weak var stockPriceLabel: UILabel!
 
     // MARK: - Exposed Methods
-    func setupCell(stock: StockPresenter) {
+    func setupCell(with stock: StockPresenter) {
         
         setupUI(borderColor: stock.priceColor)
         
@@ -29,6 +29,6 @@ final class StockCell: UICollectionViewCell {
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = borderColor.cgColor
         contentView.layer.cornerRadius = 16
-        contentView.clipsToBounds = true
+        contentView.layer.masksToBounds = true
     }
 }

@@ -26,6 +26,6 @@ struct NewsPresenter: Hashable {
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(UUID().uuidString)
+        hasher.combine("HomeItem")
     }
 }
