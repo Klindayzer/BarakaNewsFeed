@@ -15,7 +15,8 @@ This repo contains stock market news feed
 - Open BarakaTest.xcodeproj
 - Resolve SPM dependencies
 - Choose the scheme and run the project
-
+- To fethc the data locally, please use Local scheme
+- To fethc the hosted data from server, please use Develop scheme
 ### Third party dependencies
 
 I've used SPM for below dependencies
@@ -26,4 +27,8 @@ I've used SPM for below dependencies
 
 ## Screenshots
 
-![Simulator Screen Shot - iPhone 12 Pro - 2022-05-02 at 07 57 31](https://user-images.githubusercontent.com/39689007/166187286-9d275597-905f-4fd6-97d4-4263d57938b8.png)
+
+
+https://user-images.githubusercontent.com/39689007/166187932-48bdaaad-a52e-47e7-9d13-fdf90c1560cb.mp4
+
+![Simulator Screen Shot - iPhone 12 Pro - 2022-05-02 at 07 57 31] | (https://user-images.githubusercontent.com/39689007/166187286-9d275597-905f-4fd6-97d4-4263d57938b8.png)
