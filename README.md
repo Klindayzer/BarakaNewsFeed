@@ -28,6 +28,13 @@ I've used SPM for below dependencies
 ## Screenshots
 
 
-Uploading Simulator Screen Recording - iPhone 12 Pro - 2022-05-02 at 08.08.33.mp4…
+https://user-images.githubusercontent.com/39689007/166190204-204a0c35-21d5-4421-a9c0-a16e2b6e1f7b.mp4
 
 ![Simulator Screen Shot - iPhone 12 Pro - 2022-05-02 at 07 57 31](https://user-images.githubusercontent.com/39689007/166188248-52b8ded2-83fe-40be-ac0d-15f7ed3b3586.png)
+
+
+Uploading Simulator Screen Recording - iPhone 12 Pro - 2022-05-02 at 08.08.33.mp4…
+
+
+
+
